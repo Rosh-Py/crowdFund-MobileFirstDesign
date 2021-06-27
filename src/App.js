@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { NavbarModal, Hero, PageContent } from "./components";
+import { useGlobalContext } from "./globalContext";
+import styled from "styled-components";
 
 function App() {
+  const { isNavModalOpen } = useGlobalContext();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Hero />
+      {isNavModalOpen && <NavbarModal />}
+      <Wrapper>
+        <PageContent />
+      </Wrapper>
     </div>
   );
 }
+const Wrapper = styled.div`
+  transform: translateY(-4rem);
+`;
 
 export default App;
