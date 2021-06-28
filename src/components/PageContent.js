@@ -1,5 +1,5 @@
 import React from "react";
-import { BackProject, Backers } from "./";
+import { BackProject, Backers, About } from "./";
 import { backersDetails } from "../data";
 import styled from "styled-components";
 
@@ -19,6 +19,7 @@ function PageContent() {
         backersCount={backers}
         daysLeft={daysLeft}
       />
+      <About />
     </Wrapper>
   );
 }

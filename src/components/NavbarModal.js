@@ -34,7 +34,6 @@ const Wrapper = styled.div`
   width: 100%;
   background: rgba(0, 0, 0, 0.2);
   z-index: 1;
-  transition: var(--transition);
   .close-icon {
     font-size: 2rem;
     color: #fff;

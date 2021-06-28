@@ -3,7 +3,10 @@ import reducer from "./globalReducer";
 
 const GlobalContext = React.createContext();
 
-const initialState = { isNavModalOpen: false };
+const initialState = {
+  isNavModalOpen: false,
+  isThanksModalOpen: false,
+};
 
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -13,8 +16,23 @@ export const GlobalProvider = ({ children }) => {
   const closeNavModal = () => {
     dispatch({ type: "CLOSE_NAV_MODAL" });
   };
+
+  const openThanksModal = () => {
+    dispatch({ type: "OPEN_THANKS_MODAL" });
+  };
+  const closeThanksModal = () => {
+    dispatch({ type: "CLOSE_THANKS_MODAL" });
+  };
   return (
-    <GlobalContext.Provider value={{ ...state, openNavModal, closeNavModal }}>
+    <GlobalContext.Provider
+      value={{
+        ...state,
+        openNavModal,
+        closeNavModal,
+        openThanksModal,
+        closeThanksModal,
+      }}
+    >
       {children}
     </GlobalContext.Provider>
   );

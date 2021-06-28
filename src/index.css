@@ -40,15 +40,15 @@ hr {
   border-top: 1px solid var(--clr-dark-grey);
   width: 100%;
 }
-h1,
+/* h1,
 h2,
 h3,
 h4,
 h5 {
-  /* text-transform: capitalize; */
+  text-transform: capitalize;
   line-height: 1.25;
   margin-bottom: 0.75rem;
-}
+} */
 img {
   display: block;
   width: 100%;
@@ -112,4 +112,12 @@ p {
 
 .grey-text {
   color: var(--clr-dark-grey);
+}
+.btn {
+  background-color: var(--clr-primary-2);
+  color: white;
+  padding: 0.85rem 2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  display: inline-block;
 }
