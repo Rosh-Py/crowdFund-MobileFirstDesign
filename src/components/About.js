@@ -34,7 +34,7 @@ function About() {
   );
 }
 
-const Wrapper = styled.section`
+const Wrapper = styled.div`
   margin: 0 2rem;
   padding: 2rem;
   box-shadow: var(--dark-shadow);

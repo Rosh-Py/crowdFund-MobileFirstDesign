@@ -24,7 +24,7 @@ function PageContent() {
     </Wrapper>
   );
 }
-const Wrapper = styled.section`
+const Wrapper = styled.main`
   /* max-width: 690px; */
   max-width: 830px;
   margin: auto;
