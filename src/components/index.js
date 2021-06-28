@@ -8,6 +8,7 @@ import About from "./About";
 import PledgeThanks from "./PledgeThanks";
 import Pledge from "./Pledge";
 import BackProjectModal from "./BackProjectModal";
+import AlertModal from "./AlertModal";
 
 export {
   NavbarModal,
@@ -20,4 +21,5 @@ export {
   PledgeThanks,
   Pledge,
   BackProjectModal,
+  AlertModal,
 };

@@ -1,13 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { AlertModal } from "./";
 import { MdRadioButtonChecked, MdRadioButtonUnchecked } from "react-icons/md";
 import { useGlobalContext } from "../globalContext";
 
 function Pledge({ title, minAmount, description, stock, selected }) {
   const outOfStock = stock === 0;
   const [amount, setAmount] = useState(minAmount ? minAmount : 1);
-  const { selectPledge, openThanksModal, closePledgeModal } =
-    useGlobalContext();
+  const [showWarn, setShowWarn] = useState(false);
+
+  const showWarning = () => {
+    setShowWarn(true);
+    setTimeout(() => {
+      setShowWarn(false);
+    }, 2000);
+  };
+  useEffect(() => {
+    if (amount < minAmount) {
+      showWarning();
+    }
+  }, [amount, minAmount]);
+
+  const {
+    selectPledge,
+    openThanksModal,
+    closePledgeModal,
+    updateCurrentAmount,
+    updateBackers,
+  } = useGlobalContext();
   return (
     <Wrapper isSelected={selected} outOfStock={outOfStock}>
       <div
@@ -60,14 +80,26 @@ function Pledge({ title, minAmount, description, stock, selected }) {
             <div
               className="btn"
               onClick={() => {
-                closePledgeModal();
-                openThanksModal();
+                if (amount < 1 || amount < minAmount) {
+                  showWarning();
+                } else {
+                  closePledgeModal();
+                  openThanksModal();
+                  selectPledge("");
+                  updateCurrentAmount(amount);
+                  updateBackers();
+                }
               }}
             >
               Continue
             </div>
           </div>
         </div>
+      )}
+      {showWarn && (
+        <AlertModal
+          message={`Amount should be greater than ${minAmount ? minAmount : 1}`}
+        />
       )}
     </Wrapper>
   );

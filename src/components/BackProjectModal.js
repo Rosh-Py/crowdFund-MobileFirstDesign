@@ -7,11 +7,17 @@ import { Pledge } from "./";
 import { useGlobalContext } from "../globalContext";
 
 function BackProjectModal() {
-  const { closePledgeModal, pledgeSelected } = useGlobalContext();
+  const { closePledgeModal, pledgeSelected, selectPledge } = useGlobalContext();
   return (
     <Wrapper>
       <div className="backproject-container">
-        <FaTimes className="close-icon" onClick={closePledgeModal} />
+        <FaTimes
+          className="close-icon"
+          onClick={() => {
+            closePledgeModal();
+            selectPledge("");
+          }}
+        />
         <h4 className="title">Back this project</h4>
         <p className="desc">
           Want to support us in bringing Mastercraft Bamboo Monitor Riser out in

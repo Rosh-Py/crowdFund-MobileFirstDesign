@@ -68,6 +68,7 @@ const Wrapper = styled.article`
     border-radius: 1rem;
     background: var(--clr-light-grey);
     margin: 2rem;
+    overflow-x: hidden;
   }
 
   .fill {

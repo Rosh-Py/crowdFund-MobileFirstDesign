@@ -1,15 +1,16 @@
 import React from "react";
 import { BackProject, Backers, About } from "./";
-import { backersDetails } from "../data";
+// import { backersDetails } from "../data";
+import { useGlobalContext } from "../globalContext";
 import styled from "styled-components";
 
-const {
-  amount: { current, target },
-  backers,
-  daysLeft,
-} = backersDetails;
-
 function PageContent() {
+  const { backersDetails } = useGlobalContext();
+  const {
+    amount: { current, target },
+    backers,
+    daysLeft,
+  } = backersDetails;
   return (
     <Wrapper>
       <BackProject />

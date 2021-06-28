@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { useGlobalContext } from "../globalContext";
 
 function Reward({ title, minAmount, description, stock }) {
   const outOfStock = stock === 0;
+  const { openPledgeModal, selectPledge } = useGlobalContext();
   return (
     <Wrapper outOfStock={outOfStock}>
       <div className="header">
@@ -16,7 +18,13 @@ function Reward({ title, minAmount, description, stock }) {
           <span>left</span>
         </div>
         {!outOfStock ? (
-          <div className="btn">
+          <div
+            className="btn"
+            onClick={() => {
+              selectPledge(title);
+              openPledgeModal();
+            }}
+          >
             <b>Select Reward</b>
           </div>
         ) : (

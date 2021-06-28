@@ -20,6 +20,23 @@ const reducer = (state, action) => {
   if (action.type === "SELECT_PLEDGE") {
     return { ...state, pledgeSelected: action.payload };
   }
+  if (action.type === "SHOW_ALERT_MODAL") {
+    return { ...state, isAlertModalOpen: true };
+  }
+  if (action.type === "HIDE_ALERT_MODAL") {
+    return { ...state, isAlertModalOpen: true };
+  }
+  if (action.type === "UPDATE_CURRENT_AMOUNT") {
+    const temp = JSON.parse(JSON.stringify(state.backersDetails));
+    temp.amount.current =
+      parseInt(state.backersDetails.amount.current) + parseInt(action.payload);
+    return { ...state, backersDetails: temp };
+  }
+  if (action.type === "UPDATE_BACKERS") {
+    const temp = JSON.parse(JSON.stringify(state.backersDetails));
+    temp.backers = parseInt(state.backersDetails.backers) + 1;
+    return { ...state, backersDetails: temp };
+  }
 };
 
 export default reducer;
