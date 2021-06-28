@@ -10,7 +10,14 @@ function BackProjectModal() {
   const { closePledgeModal, pledgeSelected, selectPledge, pledgeRewards } =
     useGlobalContext();
   return (
-    <Wrapper>
+    <Wrapper
+      id="pledgeModal"
+      onClick={(e) => {
+        if (e.target.id === "pledgeModal") {
+          closePledgeModal();
+        }
+      }}
+    >
       <div className="backproject-container">
         <FaTimes
           className="close-icon"
