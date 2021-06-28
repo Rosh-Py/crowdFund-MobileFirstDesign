@@ -24,7 +24,8 @@ function PageContent() {
   );
 }
 const Wrapper = styled.section`
-  max-width: 690px;
+  /* max-width: 690px; */
+  max-width: 830px;
   margin: auto;
   display: grid;
   row-gap: 2rem;

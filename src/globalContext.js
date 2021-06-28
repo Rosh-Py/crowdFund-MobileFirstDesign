@@ -6,6 +6,8 @@ const GlobalContext = React.createContext();
 const initialState = {
   isNavModalOpen: false,
   isThanksModalOpen: false,
+  isPledgeModalOpen: false,
+  pledgeSelected: "",
 };
 
 export const GlobalProvider = ({ children }) => {
@@ -23,6 +25,16 @@ export const GlobalProvider = ({ children }) => {
   const closeThanksModal = () => {
     dispatch({ type: "CLOSE_THANKS_MODAL" });
   };
+  const openPledgeModal = () => {
+    dispatch({ type: "OPEN_PLEDGE_MODAL" });
+  };
+  const closePledgeModal = () => {
+    dispatch({ type: "CLOSE_PLEDGE_MODAL" });
+  };
+
+  const selectPledge = (pledge) => {
+    dispatch({ type: "SELECT_PLEDGE", payload: pledge });
+  };
   return (
     <GlobalContext.Provider
       value={{
@@ -31,6 +43,9 @@ export const GlobalProvider = ({ children }) => {
         closeNavModal,
         openThanksModal,
         closeThanksModal,
+        selectPledge,
+        openPledgeModal,
+        closePledgeModal,
       }}
     >
       {children}

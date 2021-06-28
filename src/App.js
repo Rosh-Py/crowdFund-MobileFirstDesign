@@ -1,15 +1,17 @@
-import { NavbarModal, Hero, PageContent } from "./components";
+import { NavbarModal, Hero, PageContent, BackProjectModal } from "./components";
 import { useGlobalContext } from "./globalContext";
 import styled from "styled-components";
 import PledgeThanks from "./components/PledgeThanks";
 
 function App() {
-  const { isNavModalOpen, isThanksModalOpen } = useGlobalContext();
+  const { isNavModalOpen, isThanksModalOpen, isPledgeModalOpen } =
+    useGlobalContext();
   return (
     <div className="App">
       <Hero />
       {isNavModalOpen && <NavbarModal />}
       {isThanksModalOpen && <PledgeThanks />}
+      {isPledgeModalOpen && <BackProjectModal />}
       <Wrapper>
         <PageContent />
       </Wrapper>

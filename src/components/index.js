@@ -6,6 +6,8 @@ import Backers from "./Backers";
 import Reward from "./Reward";
 import About from "./About";
 import PledgeThanks from "./PledgeThanks";
+import Pledge from "./Pledge";
+import BackProjectModal from "./BackProjectModal";
 
 export {
   NavbarModal,
@@ -16,4 +18,6 @@ export {
   Reward,
   About,
   PledgeThanks,
+  Pledge,
+  BackProjectModal,
 };

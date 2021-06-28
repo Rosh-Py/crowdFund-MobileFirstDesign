@@ -11,6 +11,15 @@ const reducer = (state, action) => {
   if (action.type === "CLOSE_THANKS_MODAL") {
     return { ...state, isThanksModalOpen: false };
   }
+  if (action.type === "OPEN_PLEDGE_MODAL") {
+    return { ...state, isPledgeModalOpen: true };
+  }
+  if (action.type === "CLOSE_PLEDGE_MODAL") {
+    return { ...state, isPledgeModalOpen: false };
+  }
+  if (action.type === "SELECT_PLEDGE") {
+    return { ...state, pledgeSelected: action.payload };
+  }
 };
 
 export default reducer;

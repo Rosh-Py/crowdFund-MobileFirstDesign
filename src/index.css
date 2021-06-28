@@ -120,4 +120,8 @@ p {
   border-radius: 2rem;
   cursor: pointer;
   display: inline-block;
+  transition: var(--transition);
+}
+.btn:hover {
+  background-color: var(--clr-primary-1);
 }

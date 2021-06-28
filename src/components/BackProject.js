@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useGlobalContext } from "../globalContext";
 import { ReactComponent as MasterCraftLogo } from "../images/logo-mastercraft.svg";
 import { ReactComponent as BookmarkIcon } from "../images/icon-bookmark.svg";
 
@@ -8,6 +9,7 @@ function BackProject() {
     localStorage.getItem("bookmarked") === "true" ? true : false
   );
 
+  const { openPledgeModal } = useGlobalContext();
   const toggleBookmark = () => {
     setIsBookmarked((state) => !state);
     localStorage.setItem("bookmarked", !isBookmarked);
@@ -22,7 +24,7 @@ function BackProject() {
         strain.
       </p>
       <div className="footer">
-        <div className="btn">
+        <div className="btn" onClick={openPledgeModal}>
           <b>Back this project</b>
         </div>
         <div
@@ -47,7 +49,7 @@ const Wrapper = styled.article`
   background: white;
   margin: 0 2rem;
   .btn b {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
   .title {
     margin-top: 1.5rem;
@@ -103,6 +105,9 @@ const Wrapper = styled.article`
       border-top-right-radius: 1rem;
       border-bottom-right-radius: 1rem;
       background-color: var(--clr-light-grey);
+    }
+    .btn b {
+      font-size: 1rem;
     }
   }
 `;
