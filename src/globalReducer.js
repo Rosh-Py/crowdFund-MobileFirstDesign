@@ -40,6 +40,10 @@ const reducer = (state, action) => {
   if (action.type === "UPDATE_REWARDS_STOCK") {
     const rewards = JSON.parse(JSON.stringify(state.pledgeRewards));
     const idx = rewards.findIndex((a) => a.title === action.payload);
+    // console.log(idx);
+    if (idx === -1) {
+      return state;
+    }
     let reward = rewards[idx];
     reward.stock = parseInt(reward.stock) - 1;
     return { ...state, pledgeRewards: rewards };
