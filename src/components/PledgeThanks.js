@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { ReactComponent as CheckIcon } from "../images/icon-check.svg";
+import { useGlobalContext } from "../globalContext";
 
 function PledgeThanks() {
+  const { closeThanksModal } = useGlobalContext();
   return (
     <Wrapper>
       <div className="thanks-container">
@@ -13,7 +15,7 @@ function PledgeThanks() {
           Monitor Riser worldwide. You will get an email once our campaign is
           completed. Got it!
         </p>
-        <div className="btn">
+        <div className="btn" onClick={closeThanksModal}>
           <strong>Got it</strong>
         </div>
       </div>

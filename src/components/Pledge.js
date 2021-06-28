@@ -6,7 +6,8 @@ import { useGlobalContext } from "../globalContext";
 function Pledge({ title, minAmount, description, stock, selected }) {
   const outOfStock = stock === 0;
   const [amount, setAmount] = useState(minAmount ? minAmount : 1);
-  const { selectPledge } = useGlobalContext();
+  const { selectPledge, openThanksModal, closePledgeModal } =
+    useGlobalContext();
   return (
     <Wrapper isSelected={selected} outOfStock={outOfStock}>
       <div
@@ -56,7 +57,15 @@ function Pledge({ title, minAmount, description, stock, selected }) {
                 }}
               />
             </div>
-            <div className="btn">Continue</div>
+            <div
+              className="btn"
+              onClick={() => {
+                closePledgeModal();
+                openThanksModal();
+              }}
+            >
+              Continue
+            </div>
           </div>
         </div>
       )}
