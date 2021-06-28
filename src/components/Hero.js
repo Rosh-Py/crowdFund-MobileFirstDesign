@@ -11,18 +11,6 @@ function Hero() {
   const { openNavModal, isNavModalOpen } = useGlobalContext();
   return (
     <Wrapper>
-      {/* <img
-        src={smHeroImg}
-        alt="hero"
-        loading="lazy"
-        className="mobile-hero-img"
-      /> */}
-      {/* <img
-        src={lgHeroImg}
-        alt="hero"
-        loading="lazy"
-        className="desktop-hero-img"
-      /> */}
       <div className="hero-img"></div>
       <div className="header">
         <div className="header-content">

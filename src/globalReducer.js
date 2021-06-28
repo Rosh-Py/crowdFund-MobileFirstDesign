@@ -37,6 +37,13 @@ const reducer = (state, action) => {
     temp.backers = parseInt(state.backersDetails.backers) + 1;
     return { ...state, backersDetails: temp };
   }
+  if (action.type === "UPDATE_REWARDS_STOCK") {
+    const rewards = JSON.parse(JSON.stringify(state.pledgeRewards));
+    const idx = rewards.findIndex((a) => a.title === action.payload);
+    let reward = rewards[idx];
+    reward.stock = parseInt(reward.stock) - 1;
+    return { ...state, pledgeRewards: rewards };
+  }
 };
 
 export default reducer;

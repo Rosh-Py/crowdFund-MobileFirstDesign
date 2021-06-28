@@ -27,6 +27,7 @@ function Pledge({ title, minAmount, description, stock, selected }) {
     closePledgeModal,
     updateCurrentAmount,
     updateBackers,
+    updateRewardsStock,
   } = useGlobalContext();
   return (
     <Wrapper isSelected={selected} outOfStock={outOfStock}>
@@ -88,6 +89,7 @@ function Pledge({ title, minAmount, description, stock, selected }) {
                   selectPledge("");
                   updateCurrentAmount(amount);
                   updateBackers();
+                  updateRewardsStock(title);
                 }
               }}
             >

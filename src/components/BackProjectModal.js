@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { FaTimes } from "react-icons/fa";
-import { pledgeRewards } from "../data";
+// import { pledgeRewards } from "../data";
 import { v4 as uuidv4 } from "uuid";
 import { Pledge } from "./";
 import { useGlobalContext } from "../globalContext";
 
 function BackProjectModal() {
-  const { closePledgeModal, pledgeSelected, selectPledge } = useGlobalContext();
+  const { closePledgeModal, pledgeSelected, selectPledge, pledgeRewards } =
+    useGlobalContext();
   return (
     <Wrapper>
       <div className="backproject-container">

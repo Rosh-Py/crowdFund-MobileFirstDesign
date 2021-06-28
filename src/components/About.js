@@ -2,9 +2,10 @@ import React from "react";
 import { Reward } from "./";
 import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
-import { pledgeRewards } from "../data";
-
+// import { pledgeRewards } from "../data";
+import { useGlobalContext } from "../globalContext";
 function About() {
+  const { pledgeRewards } = useGlobalContext();
   return (
     <Wrapper>
       <div className="about">
