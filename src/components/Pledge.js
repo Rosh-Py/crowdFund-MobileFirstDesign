@@ -71,7 +71,8 @@ function Pledge({ title, minAmount, description, stock, selected }) {
             <div className="amount btn">
               <span>$</span>
               <input
-                type="text"
+                type="number"
+                min={1}
                 value={amount}
                 onChange={(e) => {
                   setAmount(e.target.value);
