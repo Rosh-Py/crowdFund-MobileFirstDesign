@@ -7,3 +7,4 @@ Mobile first design for a crowdfound website.
 ### Technologies uses
 
 - React.js
+- styled components
