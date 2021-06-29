@@ -75,7 +75,11 @@ function Pledge({ title, minAmount, description, stock, selected }) {
                 min={1}
                 value={amount}
                 onChange={(e) => {
-                  setAmount(e.target.value);
+                  // should be integer only
+                  const re = /^[0-9\b]+$/;
+                  if (e.target.value === "" || re.test(e.target.value)) {
+                    setAmount(e.target.value);
+                  }
                 }}
               />
             </div>
